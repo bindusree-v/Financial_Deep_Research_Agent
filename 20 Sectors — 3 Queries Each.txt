@@ -1,0 +1,121 @@
+20 Sectors — 3 Queries Each
+
+1. IT Sector
+
+Analyze TCS and Infosys Q4 FY25 revenue growth and margins
+Compare Wipro and HCL Technologies financial health and deal wins
+Research Indian IT sector AI adoption and digital transformation trends
+
+2. Pharma Sector
+
+Analyze Sun Pharma and Dr Reddy's financial performance and pipeline
+Compare Cipla and Lupin generic drug market share and R&D spending
+Research Indian pharma sector biosimilar opportunities and FDA approvals
+
+3. Banking Sector
+
+Analyze HDFC Bank and ICICI Bank NPA ratios and loan growth
+Compare SBI and Axis Bank CASA ratio and net interest margins
+Research RBI regulations impact on Indian banking sector profitability
+
+4. Energy Sector
+
+Analyze Reliance Industries and ONGC revenue and refining margins
+Compare NTPC and Power Grid renewable energy investments
+Research India energy sector oil price impact and future outlook
+
+5. FMCG Sector
+
+Analyze HUL and ITC volume growth and operating margins
+Compare Nestle India and Dabur rural vs urban revenue distribution
+Research FMCG sector GST impact and premiumization trends
+
+6. Auto Sector
+
+Analyze Tata Motors and Maruti Suzuki EV strategy and sales growth
+Compare Bajaj Auto and Hero MotoCorp two-wheeler market performance
+Research Indian auto sector chip shortage and supply chain recovery
+
+7. Telecom Sector
+
+Analyze Airtel and Jio ARPU growth and 5G rollout progress
+Compare Airtel and Vodafone Idea debt levels and subscriber base
+Research India telecom sector spectrum auction impact and 5G opportunities
+
+8. Real Estate Sector
+
+Analyze DLF and Godrej Properties sales bookings and debt reduction
+Compare Oberoi Realty and Prestige Estates luxury segment performance
+Research RERA impact on Indian real estate sector consolidation
+
+9. Metals Sector
+
+Analyze Tata Steel and JSW Steel EBITDA margins and capacity expansion
+Compare Hindalco and Vedanta aluminium production and global pricing
+Research China steel dumping impact on Indian metals sector outlook
+
+10. Insurance Sector
+
+Analyze LIC and HDFC Life premium growth and solvency margins
+Compare SBI Life and ICICI Prudential new business premium trends
+Research IRDAI regulations impact on Indian insurance sector growth
+
+11. Cement Sector
+
+Analyze UltraTech Cement and Shree Cement capacity utilization
+Compare ACC and Ambuja Cement post-merger synergies and margins
+Research infrastructure boom impact on Indian cement sector demand
+
+12. Chemicals Sector
+
+Analyze Asian Paints and Pidilite revenue growth and raw material costs
+Compare SRF and Aarti Industries specialty chemicals export performance
+Research China plus one strategy benefit for Indian chemicals sector
+
+13. Consumer Sector
+
+Analyze Titan and Voltas revenue growth and market expansion
+Compare Havells and Crompton Greaves consumer durables performance
+Research premiumization trend impact on Indian consumer sector margins
+
+14. Infrastructure Sector
+
+Analyze L&T and Adani Ports order book and revenue visibility
+Compare IRB Infrastructure and GMR Airports toll collection growth
+Research National Infrastructure Pipeline impact on sector opportunities
+
+15. Media Sector
+
+Analyze Zee Entertainment and Sun TV advertising revenue trends
+Compare PVR Inox box office recovery and OTT competition impact
+Research OTT regulations and digital advertising growth in Indian media
+
+16. Aviation Sector
+
+Analyze IndiGo market share and cost per available seat kilometer
+Compare IndiGo and Air India fleet expansion and route strategy
+Research India aviation sector passenger growth and fuel cost impact
+
+17. Retail Sector
+
+Analyze DMart revenue per square foot and store expansion strategy
+Compare Trent and Shoppers Stop same store sales growth trends
+Research quick commerce impact on Indian organized retail sector
+
+18. Hospitality Sector
+
+Analyze Indian Hotels and EIH revenue per available room trends
+Compare Lemon Tree and Chalet Hotels occupancy and ARR recovery
+Research India tourism boom impact on hospitality sector outlook
+
+19. Agriculture Sector
+
+Analyze UPL and Coromandel International agrochemical revenue growth
+Compare PI Industries and Bayer CropScience crop protection performance
+Research MSP policy changes impact on Indian agriculture sector companies
+
+20. Defense Sector
+
+Analyze HAL and BEL order book and Atmanirbhar Bharat opportunities
+Compare Mazagon Dock and BEML defense export growth and margins
+Research India defense budget increase impact on domestic manufacturers

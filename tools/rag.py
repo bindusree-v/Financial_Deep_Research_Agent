@@ -35,10 +35,8 @@ class RAGTool:
 
         self.client = chromadb.PersistentClient(path=config.CHROMA_PERSIST_DIR)
 
-        # Use sentence-transformers for local embeddings (no API cost)
-        self.embedding_fn = embedding_functions.SentenceTransformerEmbeddingFunction(
-            model_name=config.EMBEDDING_MODEL
-        )
+        # Use ONNX-based embedding (no PyTorch dependency, low memory footprint)
+        self.embedding_fn = embedding_functions.ONNXMiniLM_L6_V2()
 
         self.collection = self.client.get_or_create_collection(
             name=collection_name,

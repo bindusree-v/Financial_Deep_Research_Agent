@@ -70,21 +70,8 @@ from contextlib import asynccontextmanager
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """Pre-warm heavy models on startup so first request is fast."""
-    import asyncio
-    loop = asyncio.get_running_loop()
-    try:
-        logger.warning("Pre-warming sentence-transformer embedding model...")
-        from chromadb.utils import embedding_functions
-        from config import config as _config
-        def _warm():
-            embedding_functions.SentenceTransformerEmbeddingFunction(
-                model_name=_config.EMBEDDING_MODEL
-            )
-        await loop.run_in_executor(None, _warm)
-        logger.warning("Embedding model ready.")
-    except Exception as e:
-        logger.warning("Model pre-warm failed (non-fatal): %s", e)
+    """Startup: lightweight — no model pre-warming to stay within free-tier RAM."""
+    logger.warning("API starting up (lazy model loading enabled).")
     yield
 
 app = FastAPI(

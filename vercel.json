@@ -1,0 +1,43 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "ui/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "https://financial-deep-research-agent.onrender.com/api/$1"
+    },
+    {
+      "src": "/login",
+      "dest": "/ui/login.html"
+    },
+    {
+      "src": "/history",
+      "dest": "/ui/history.html"
+    },
+    {
+      "src": "/activity",
+      "dest": "/ui/activity.html"
+    },
+    {
+      "src": "/dashboard",
+      "dest": "/ui/dashboard.html"
+    },
+    {
+      "src": "/profile",
+      "dest": "/ui/profile.html"
+    },
+    {
+      "src": "/admin",
+      "dest": "/ui/admin.html"
+    },
+    {
+      "src": "/",
+      "dest": "/ui/index.html"
+    }
+  ]
+}

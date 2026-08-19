@@ -1,10 +1,34 @@
 services:
   - type: web
-    name: ai-financial-decision-agent
+    name: financial-deep-research-agent
     runtime: python
     pythonVersion: "3.11.9"
     buildCommand: pip install -r requirements.txt
-    startCommand: python api.py
+    startCommand: uvicorn api:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: PYTHON_VERSION
         value: "3.11.9"
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: OPENROUTER_BASE_URL
+        value: https://openrouter.ai/api/v1
+      - key: TAVILY_API_KEY
+        sync: false
+      - key: ALPHA_VANTAGE_API_KEY
+        sync: false
+      - key: LLM_MODEL
+        value: openai/gpt-4o-mini
+      - key: LLM_MAX_TOKENS
+        value: "800"
+      - key: CHROMA_PERSIST_DIR
+        value: ./chroma_db
+      - key: MAX_RESEARCH_STEPS
+        value: "6"
+      - key: MIN_RESEARCH_STEPS
+        value: "3"
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: ANONYMIZED_TELEMETRY
+        value: "false"
+      - key: CHROMA_TELEMETRY
+        value: "false"

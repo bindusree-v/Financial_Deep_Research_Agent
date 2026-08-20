@@ -891,7 +891,7 @@ function drawSparkline(canvas, data, isUp){
 }
 
 async function fetchStock(ticker){
-  var id = 'stock-'+ticker.replace('.','_');
+  var id = 'stock-'+ticker.replace(/\./g,'_').replace(/\^/g,'_');
   var existing = document.getElementById(id);
   var grid = document.getElementById('stockGrid');
   document.getElementById('stockEmpty').classList.add('hidden');

@@ -357,40 +357,64 @@ async def get_report(filename: str, email: str = Depends(require_auth)):
 
 @app.get("/api/stock/{ticker}")
 async def get_stock(ticker: str, email: str = Depends(require_auth)):
-    import yfinance as yf
     import math
+    import requests as _requests
+
     def safe(v):
-        """Convert NaN/Inf floats to None for JSON safety."""
         try:
             f = float(v)
             return None if (math.isnan(f) or math.isinf(f)) else round(f, 2)
         except (TypeError, ValueError):
             return None
+
+    def fetch():
+        sym = ticker.upper()
+        # Use Yahoo Finance v8 chart API with browser-like headers to avoid IP blocks
+        url = (
+            f"https://query2.finance.yahoo.com/v8/finance/chart/{sym}"
+            f"?interval=1d&range=1mo&includePrePost=false&corsDomain=finance.yahoo.com"
+        )
+        headers = {
+            "User-Agent": (
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) "
+                "Chrome/124.0.0.0 Safari/537.36"
+            ),
+            "Accept": "application/json",
+            "Accept-Language": "en-US,en;q=0.9",
+            "Referer": "https://finance.yahoo.com/",
+        }
+        resp = _requests.get(url, headers=headers, timeout=12)
+        resp.raise_for_status()
+        data = resp.json()
+
+        result = data["chart"]["result"][0]
+        meta = result["meta"]
+        closes = (
+            result.get("indicators", {})
+            .get("quote", [{}])[0]
+            .get("close", [])
+        ) or []
+
+        # Filter nulls for sparkline
+        sparkline = [safe(v) for v in closes if v is not None]
+
+        price     = safe(meta.get("regularMarketPrice"))
+        prev      = safe(meta.get("chartPreviousClose") or meta.get("previousClose")) or price
+        change    = round(price - prev, 2) if price is not None and prev is not None else 0
+        change_pct = round((change / prev) * 100, 2) if prev else 0
+
+        return {
+            "ticker":     sym,
+            "name":       meta.get("shortName") or meta.get("longName") or sym,
+            "price":      price,
+            "change":     change,
+            "change_pct": change_pct,
+            "currency":   meta.get("currency", "USD"),
+            "sparkline":  sparkline,
+        }
+
     try:
-        def fetch():
-            t = yf.Ticker(ticker.upper())
-            info = t.info
-            hist = t.history(period="5d")
-            price = safe(hist["Close"].iloc[-1]) if not hist.empty else None
-            prev  = safe(hist["Close"].iloc[-2]) if len(hist) > 1 else price
-            change     = round(price - prev, 2) if price is not None and prev is not None else 0
-            change_pct = round((change / prev) * 100, 2) if prev else 0
-            spark_hist = t.history(period="1mo")
-            sparkline  = [safe(v) for v in spark_hist["Close"].tolist() if safe(v) is not None] if not spark_hist.empty else []
-            return {
-                "ticker":     ticker.upper(),
-                "name":       info.get("longName", ticker.upper()),
-                "price":      price,
-                "change":     change,
-                "change_pct": change_pct,
-                "market_cap": safe(info.get("marketCap")),
-                "pe_ratio":   safe(info.get("trailingPE")),
-                "week_high":  safe(info.get("fiftyTwoWeekHigh")),
-                "week_low":   safe(info.get("fiftyTwoWeekLow")),
-                "volume":     safe(info.get("volume")),
-                "currency":   info.get("currency", "USD"),
-                "sparkline":  sparkline,
-            }
         loop = asyncio.get_running_loop()
         data = await loop.run_in_executor(None, fetch)
         return data
